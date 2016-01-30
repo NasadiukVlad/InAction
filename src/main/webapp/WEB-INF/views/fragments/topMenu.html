@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link href="../../../resources/css/all.css" rel="stylesheet" media="screen" th:href="@{/resources/css/all.css}"/>
+</head>
+<body>
+
+    <div class="row" style="text-align: center;" th:fragment="topMenu">
+                    <div class="col-3">
+                        <div class="panel">
+
+                            <img src="../../../resources/images/user3.png"
+                                 th:src="@{/resources/images/user3.png}"
+                                 rel="stylesheet"
+                                 media="screen"
+                                 style="width: 18px; height: 18px; vertical-align: middle;"/>
+                            <a href="#">Buddies</a>
+                        </div>
+                    </div>
+
+                    <div class="col-3">
+                        <div class="panel">
+
+                            <img src="../../../resources/images/Chat.png"
+                                 th:src="@{/resources/images/Chat.png}"
+                                 rel="stylesheet"
+                                 media="screen"
+                                 style="width: 18px; height: 18px; vertical-align: middle;"/>
+                            <a href="#" style="color: #ffad10;">Groups</a>
+                        </div>
+                    </div>
+
+                    <div class="col-3">
+                        <div class="panel">
+
+                            <img src="../../../resources/images/Calendar2.png"
+                                 th:src="@{/resources/images/Calendar2.png}"
+                                 rel="stylesheet"
+                                 media="screen"
+                                 style="width: 18px; height: 18px; vertical-align: middle;"/>
+                            <a href="/events" style="color: #99cc33;">Events</a>
+                        </div>
+                    </div>
+
+                    <div class="col-3">
+                        <div class="panel">
+
+                            <img src="../../../resources/images/award.png"
+                                 th:src="@{/resources/images/award.png}"
+                                 rel="stylesheet"
+                                 media="screen"
+                                 style="width: 18px; height: 18px; vertical-align: middle;"/>
+                            <a href="#" style="color: #1983cd;">Challenges</a>
+                        </div>
+                    </div>
+                </div>
+
+</body>
+</html>

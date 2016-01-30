@@ -14,24 +14,21 @@
 <div class="container">
     <div class="row" style="margin: 8px;">
         <div th:replace="fragments/leftContent :: leftContent">LeftContent</div>
+
         <div class="col-8">
             <div th:replace="fragments/topMenu :: topMenu">TopMenu</div>
-
             <div class="panel">
-                <div class="news-item">
+                <div class="news-item" th:each="event : ${events}">
                     <div>
-                        <span class="news-item__name">Jane Hithard</span>
-                        <span class="news-item__date">21 Aug at 3:27 pm</span>
+                        <tr>
+                            <strong><td th:text="${event.eventName}">Event</td></strong> <br/>
+                            <td th:text="${event.eventDescription}">Event</td><br/>
+                            <td th:text="${event.eventStartTime}">Event</td> -
+                            <td th:text="${event.eventEndTime}">Event</td>
+                        </tr>
                     </div>
-                    <span>Anyone up for a hike this weekend?</span>
                 </div>
-                <div class="news-item">
-                    <div>
-                        <span class="news-item__name">Simon Swiftleg</span>
-                        <span class="news-item__date">20 Aug at 9:11 am</span>
-                    </div>
-                    <span>Just finished my first 5k. Best feeling ever!</span>
-                </div>
+
             </div>
         </div>
     </div>
