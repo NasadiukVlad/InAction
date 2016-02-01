@@ -1,46 +1,42 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Signup</title>
+    <title>InAction</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <link href="../../../resources/css/bootstrap.min.css" rel="stylesheet" media="screen" th:href="@{/resources/css/bootstrap.min.css}"/>
-    <link href="../../../resources/css/core.css" rel="stylesheet" media="screen" th:href="@{/resources/css/core.css}" />
     <script src="http://code.jquery.com/jquery-latest.js"></script>
-    <script src="../../../resources/js/bootstrap.min.js" th:src="@{/resources/js/bootstrap.min.js}"></script>
+    <script src="//cdn.jsdelivr.net/chartist.js/latest/chartist.min.js"/>
+
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/chartist.js/latest/chartist.min.css"/>
+    <link href="../../../resources/css/all.css" rel="stylesheet" media="screen" th:href="@{/resources/css/all.css}"/>
 </head>
 <body>
-<form class="form-narrow form-horizontal" method="post" th:action="@{/signup}" th:object="${signupForm}">
-    <!--/* Show general error message when form contains errors */-->
-    <th:block th:if="${#fields.hasErrors('${signupForm.*}')}">
-        <div th:replace="fragments/alert :: alert (type='danger', message='Form contains errors. Please try again.')">Alert</div>
-    </th:block>
-    <fieldset>
-        <legend>Please Sign Up</legend>
-        <div class="form-group" th:classappend="${#fields.hasErrors('email')}? 'has-error'">
-            <label for="email" class="col-lg-2 control-label">Email</label>
-            <div class="col-lg-10">
-                <input type="text" class="form-control" id="email" placeholder="Email address" th:field="*{email}" />
-                <span class="help-block" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Incorrect email</span>
+<div th:replace="fragments/header :: header">Header</div>
+<div class="container">
+    <div class="row" style="margin: 8px;">
+        <div th:replace="fragments/leftContent :: leftContent">LeftContent</div>
+        <div class="col-8">
+            <div th:replace="fragments/topMenu :: topMenu">TopMenu</div>
+
+            <div class="panel">
+                <form action="#" th:action="@{/signuppost}" th:object="${users}" method="post">
+                    <br/>
+
+                    <p>Enter your login: </p>
+                    <br/>
+                    <input type="text" th:field="*{username}"/>
+                    <br/>
+                    <p>Enter your password: </p>
+                    <br/>
+                    <input type="password" th:field="*{password}"/>
+                    <br/>
+                    <input type="submit" value="Login" name="button"/>
+
+                </form>
             </div>
         </div>
-        <div class="form-group" th:classappend="${#fields.hasErrors('password')}? 'has-error'">
-            <label for="password" class="col-lg-2 control-label">Password</label>
-            <div class="col-lg-10">
-                <input type="password" class="form-control" id="password" placeholder="Password" th:field="*{password}"/>
-                <span class="help-block" th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Incorrect password</span>
-            </div>
-        </div>
-        <div class="form-group">
-            <div class="col-lg-offset-2 col-lg-10">
-                <button type="submit" class="btn btn-default">Sign up</button>
-            </div>
-        </div>
-        <div class="form-group">
-            <div class="col-lg-offset-2 col-lg-10">
-                <p>Already have an account? <a href="signin" th:href="@{/signin}">Sign In</a></p>
-            </div>
-        </div>
-    </fieldset>
-</form>
+    </div>
+
+    <div th:replace="fragments/footer :: footer">&copy; 2015 InAction Developers</div>
+</div>
 </body>
 </html>
