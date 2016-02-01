@@ -28,10 +28,14 @@ public class SignUpController {
     }
 
     @RequestMapping(value = "/signuppost", method = RequestMethod.POST)
-    public void signup(@ModelAttribute(value = "users") Users users) {
+    public ModelAndView signup(@ModelAttribute(value = "users") Users users) {
         Users user = new Users(users.getUsername(), users.getPassword(), users.getUserEmail());
 
         UsersJpaDao usersJpaDao = new UsersJpaDao();
         usersJpaDao.addUser(user);
+
+        final ModelAndView mav = new ModelAndView("home/homeNotSignedIn");
+        
+        return mav;
     }
 }
