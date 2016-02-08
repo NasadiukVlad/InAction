@@ -5,9 +5,10 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <script src="http://code.jquery.com/jquery-latest.js"></script>
     <script src="//cdn.jsdelivr.net/chartist.js/latest/chartist.min.js"/>
-
+    <script type="text/javascript" src="../../../resources/js/main.js"></script>
     <link rel="stylesheet" href="//cdn.jsdelivr.net/chartist.js/latest/chartist.min.css"/>
     <link href="../../../resources/css/all.css" rel="stylesheet" media="screen" th:href="@{/resources/css/all.css}"/>
+
 </head>
 <body>
 <div th:replace="fragments/header :: header">Header</div>
@@ -17,8 +18,16 @@
         <div class="col-8">
             <div th:replace="fragments/topMenu :: topMenu">TopMenu</div>
 
-            <div class="panel">
-                <div class="news-item">
+            <div class="panel" id ="panel">
+
+                <template id = "homeTemplate">
+                    you are at home!
+                </template>
+
+                <template id = "eventsTemplate">
+                    you are at events!
+                </template>
+                <!--<div class="news-item">
                     <div>
                         <span class="news-item__name">Jane Hithard</span>
                         <span class="news-item__date">21 Aug at 3:27 pm</span>
@@ -31,7 +40,7 @@
                         <span class="news-item__date">20 Aug at 9:11 am</span>
                     </div>
                     <span>Just finished my first 5k. Best feeling ever!</span>
-                </div>
+                </div>-->
             </div>
         </div>
     </div>

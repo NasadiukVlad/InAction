@@ -1,0 +1,11 @@
+<div class="news-item" th:each="event : ${events}">
+    <div>
+        <tr>
+            <strong><td th:text="${event.eventName}">Event</td></strong> <br/>
+            <td th:text="${event.eventDescription}">Event</td><br/>
+            <td th:text="${event.eventStartTime}">Event</td> -
+            <td th:text="${event.eventEndTime}">Event</td>
+        </tr>
+    </div>
+    Time:  <p th:text="${time}">Time</p>
+</div>

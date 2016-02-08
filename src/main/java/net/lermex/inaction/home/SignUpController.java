@@ -19,6 +19,7 @@ public class SignUpController {
     @Autowired
     private TestBean testBean;
 
+
     @RequestMapping(value = "/signup", method = RequestMethod.GET)
     public ModelAndView index() {
 
@@ -31,11 +32,13 @@ public class SignUpController {
     public ModelAndView signup(@ModelAttribute(value = "users") Users users) {
         Users user = new Users(users.getUsername(), users.getPassword(), users.getUserEmail());
 
+
+
         UsersJpaDao usersJpaDao = new UsersJpaDao();
         usersJpaDao.addUser(user);
 
         final ModelAndView mav = new ModelAndView("home/homeNotSignedIn");
-        
+
         return mav;
     }
 }

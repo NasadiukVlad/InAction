@@ -2,6 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <link href="../../../resources/css/all.css" rel="stylesheet" media="screen" th:href="@{/resources/css/all.css}" />
+    <script type="text/javascript" src="js/main.js"></script>
 </head>
 <body>
 
@@ -26,6 +27,7 @@
 
         <p>
             <a href="/signup" th:href="@{/signup}" class="btn btn-success btn-lg">Sign up</a>
+            <p th:text="${session.username}">Username</p>
         </p>
 
         <a class="site-header__link" href="#" th:href="@{/}">Home</a>
@@ -41,47 +43,10 @@
                 Statistics and info
             </p>
 
-            <div class="ct-chart ct-perfect-fourth"></div>
+            <div class="ct-chart ct-perfect-fourth" id = "ct-chart-ct-perfect-fourth">
 
-            <script th:inline="javascript">
-                function getData() {
-                    var xhr = new XMLHttpRequest();
-                    xhr.open('POST', '/statisticsController', false);
-                    xhr.send();
-                    if (xhr.status != 200) {
-                        alert(xhr.status + ': ' + xhr.statusText);
-                    } else {
-                        //    alert(xhr.responseText)
-                        return xhr.responseText
 
-                        // document.getElementById("array").innerHTML = xhr.responseText;
-                    }
-                }
-
-                var array = JSON.parse("[" + getData() +"]")
-
-                /*    /!*<![CDATA[*!/
-                 var monday = /!*[[${monday}]]*!/ null;
-                 var tuesday = /!*[[${tuesday}]]*!/ null;
-                 var wednesday = /!*[[${wednesday}]]*!/ null;
-                 var thursday = /!*[[${thursday}]]*!/ null;
-                 var friday = /!*[[${friday}]]*!/ null;
-                 /!*]]>*!/
-                 */
-                var data = {
-                    // A labels array that can contain any sort of values
-                    labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'],
-                    // Our series array that contains series objects or in this case series data arrays
-                    series: [
-                        array
-                    ]
-                };
-
-                // Create a new line chart object where as first parameter we pass in a selector
-                // that is resolving to our chart container element. The Second parameter
-                // is the actual data object.
-                new Chartist.Line('.ct-chart', data);
-            </script>
+            </div>
             <a href="/graphDataSetter">Set Data</a>
         </div>
     </div>
